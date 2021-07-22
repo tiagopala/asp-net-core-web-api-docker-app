@@ -1,8 +1,15 @@
 {
   "version": 2,
-  "dgSpecHash": "1inbFnQb3Mos+rdwu6d3CTOMpAhPwV/2wGKa+myYBZu10KbHcpinU0G2Ln3Pc7fKqoAytWVIRPoR2kFzZq8CCA==",
+  "dgSpecHash": "LJEXtb1ex5wbqGI5hGLSKv6wcxL6BQGSdoLMpSvHbZzytzQzuVmm3VDRGRCwqtBSF2nuuZiz3iMh1rHaRqCuPg==",
   "success": true,
   "projectFilePath": "C:\\Users\\Tiago Pala\\source\\AspNetCoreWebApiDockerApp\\src\\AspNetCoreWebApiDockerApp\\AspNetCoreWebApiDockerApp.Api\\AspNetCoreWebApiDockerApp.Api.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\Tiago Pala\\.nuget\\packages\\microsoft.extensions.apidescription.server\\3.0.0\\microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",
+    "C:\\Users\\Tiago Pala\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",
+    "C:\\Users\\Tiago Pala\\.nuget\\packages\\swashbuckle.aspnetcore\\6.1.4\\swashbuckle.aspnetcore.6.1.4.nupkg.sha512",
+    "C:\\Users\\Tiago Pala\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\6.1.4\\swashbuckle.aspnetcore.swagger.6.1.4.nupkg.sha512",
+    "C:\\Users\\Tiago Pala\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\6.1.4\\swashbuckle.aspnetcore.swaggergen.6.1.4.nupkg.sha512",
+    "C:\\Users\\Tiago Pala\\.nuget\\packages\\swashbuckle.aspnetcore.swaggerui\\6.1.4\\swashbuckle.aspnetcore.swaggerui.6.1.4.nupkg.sha512"
+  ],
   "logs": []
 }
