@@ -1,6 +1,8 @@
 ﻿using AspNetCoreWebApiDockerApp.Api.Models;
+using AspNetCoreWebApiDockerApp.Api.Repositories.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using System;
+using System.Threading.Tasks;
 
 namespace AspNetCoreWebApiDockerApp.Api.Controllers
 {
@@ -8,10 +10,29 @@ namespace AspNetCoreWebApiDockerApp.Api.Controllers
     [Route("[controller]")]
     public class BooksController : ControllerBase
     {
-        [HttpGet]
-        public IActionResult GetAll()
+        private readonly IBooksRepository _booksRepository;
+
+        public BooksController(IBooksRepository booksRepository)
         {
-            return Ok();
+            _booksRepository = booksRepository;
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> GetAll()
+        {
+            try
+            {
+                var books = await _booksRepository.GetAll();
+
+                if (books.Count.Equals(0))
+                    return NotFound(new { Message = "Nenhum livro encontrado" });
+
+                return Ok(books);
+            }
+            catch (Exception e)
+            {
+                return BadRequest(new { Message = "Nenhum livro encontrado" });
+            }
         }
 
         [HttpGet("{id:guid}")]

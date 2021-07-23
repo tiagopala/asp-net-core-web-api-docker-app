@@ -1,16 +1,9 @@
+using AspNetCoreWebApiDockerApp.Api.Registers;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
-using Microsoft.OpenApi.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace AspNetCoreWebApiDockerApp.Api
 {
@@ -28,10 +21,9 @@ namespace AspNetCoreWebApiDockerApp.Api
         {
             services.AddControllers();
             services.AddRouting(options => options.LowercaseUrls = true);
-            services.AddSwaggerGen(c =>
-            {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "Concepts.Api", Version = "v1" });
-            });
+            services.RegisterRepositories();
+            services.RegisterDbContext(Configuration);
+            services.AddSwagger();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -42,13 +34,7 @@ namespace AspNetCoreWebApiDockerApp.Api
                 app.UseDeveloperExceptionPage();
             }
 
-            app.UseSwagger();
-            app.UseSwaggerUI(c =>
-            {
-                c.RoutePrefix = string.Empty;
-                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Concepts.Api v1");
-            });
-
+            app.UseDefaultSwagger();
             app.UseHttpsRedirection();
 
             app.UseRouting();
