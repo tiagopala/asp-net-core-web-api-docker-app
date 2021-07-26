@@ -31,32 +31,80 @@ namespace AspNetCoreWebApiDockerApp.Api.Controllers
             }
             catch (Exception e)
             {
-                return BadRequest(new { Message = "Nenhum livro encontrado" });
+                return BadRequest(new { Message = $"{e.Message}" });
             }
         }
 
         [HttpGet("{id:guid}")]
-        public IActionResult Get(Guid id)
+        public async Task<IActionResult> Get(string id)
         {
-            return Ok();
+            try
+            {
+                var book = await _booksRepository.Get(id);
+
+                if (book is null)
+                    return NotFound(new { Message = "Livro não encontrado" });
+
+                return Ok(book);
+            }
+            catch (Exception e)
+            {
+                return BadRequest(new { Message = $"{e.Message}" });
+            }
         }
 
         [HttpPost]
-        public IActionResult Save([FromBody] Book book)
+        public async Task<IActionResult> Save([FromBody] Book book)
         {
-            return Ok();
+            try
+            {
+                var createdBook = await _booksRepository.Save(book);
+
+                return Ok(new { Message = $"Livro '{book.Id}' cadastrado com sucesso" });
+            }
+            catch (Exception e)
+            {
+                return BadRequest(new { Message = $"{e.Message}" });
+            }
         }
 
         [HttpPut("{id:guid}")]
-        public IActionResult Update(Guid id)
+        public async Task<IActionResult> Update(Guid id,[FromBody]Book book)
         {
-            return Ok();
+            try
+            {
+                var livroAtualizado = new Book
+                {
+                    Id = id.ToString(),
+                    Name = book.Name,
+                    Description = book.Description,
+                    Price = book.Price,
+                    Author = book.Author
+                };
+
+                await _booksRepository.Update(livroAtualizado);
+
+                return Ok(new { Message = "Livro atualizado com sucesso" });
+            }
+            catch (Exception e)
+            {
+                return BadRequest(new { Message = $"{e.Message}" });
+            }
         }
 
         [HttpDelete("{id:guid}")]
-        public IActionResult Delete(Guid id)
+        public async Task<IActionResult> Delete(string id)
         {
-            return Ok();
+            try
+            {
+                await _booksRepository.Delete(id);
+
+                return Ok(new { Message = "Livro deletado com sucesso" });
+            }
+            catch (Exception e)
+            {
+                return BadRequest(new { Message = $"{e.Message}" });
+            }
         }
     }
 }

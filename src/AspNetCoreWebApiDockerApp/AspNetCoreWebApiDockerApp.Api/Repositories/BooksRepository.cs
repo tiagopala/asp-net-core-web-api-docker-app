@@ -19,13 +19,13 @@ namespace AspNetCoreWebApiDockerApp.Api.Repositories
             _books = libraryContext.Books;
         }
 
-        public async Task Delete(Guid id)
+        public async Task Delete(string id)
         {
             _books.Remove(new Book { Id = id });
             await SaveChanges();
         }
 
-        public async Task<Book> Get(Guid id)
+        public async Task<Book> Get(string id)
         {
             return await _books.FindAsync(id);
         }
@@ -35,10 +35,11 @@ namespace AspNetCoreWebApiDockerApp.Api.Repositories
             return await _books.ToListAsync();
         }
 
-        public async Task Save(Book book)
+        public async Task<Book> Save(Book book)
         {
             _books.Add(book);
             await SaveChanges();
+            return book;
         }
 
         public async Task Update(Book book)
