@@ -4,6 +4,7 @@ using AspNetCoreWebApiDockerApp.Api.Repositories.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace AspNetCoreWebApiDockerApp.Api.Repositories
@@ -19,9 +20,9 @@ namespace AspNetCoreWebApiDockerApp.Api.Repositories
             _books = libraryContext.Books;
         }
 
-        public async Task Delete(string id)
+        public async Task Delete(Guid id)
         {
-            _books.Remove(new Book { Id = id });
+            _books.Remove(new Book(id));
             await SaveChanges();
         }
 
@@ -32,7 +33,9 @@ namespace AspNetCoreWebApiDockerApp.Api.Repositories
 
         public async Task<List<Book>> GetAll()
         {
-            return await _books.ToListAsync();
+            return await _books
+                .OrderBy(b => b.Sequence)
+                .ToListAsync();
         }
 
         public async Task<Book> Save(Book book)

@@ -73,9 +73,8 @@ namespace AspNetCoreWebApiDockerApp.Api.Controllers
         {
             try
             {
-                var livroAtualizado = new Book
+                var livroAtualizado = new Book(id)
                 {
-                    Id = id.ToString(),
                     Name = book.Name,
                     Description = book.Description,
                     Price = book.Price,
@@ -93,7 +92,7 @@ namespace AspNetCoreWebApiDockerApp.Api.Controllers
         }
 
         [HttpDelete("{id:guid}")]
-        public async Task<IActionResult> Delete(string id)
+        public async Task<IActionResult> Delete(Guid id)
         {
             try
             {

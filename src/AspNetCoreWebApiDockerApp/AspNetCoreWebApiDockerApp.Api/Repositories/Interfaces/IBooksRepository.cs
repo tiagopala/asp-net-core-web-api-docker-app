@@ -1,4 +1,5 @@
 ﻿using AspNetCoreWebApiDockerApp.Api.Models;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -10,6 +11,6 @@ namespace AspNetCoreWebApiDockerApp.Api.Repositories.Interfaces
         Task<Book> Save(Book book);
         Task<Book> Get(string id);
         Task Update(Book book);
-        Task Delete(string id);
+        Task Delete(Guid id);
     }
 }
