@@ -32,8 +32,12 @@ No diretório ```src/AspNetCoreWebApiDockerApp/AspNetCoreWebApiDockerApp.Api```
 
 ```dotnet run```
 
+### Restore Project
+
+```dotnet restore```
+
 #### Publish Project
 
-```dotnet publish -c Release -r win10-x64 --self-contained```
+```dotnet publish -c Release```
 
 Obs: Para utilizar as variáveis de ambiente de Release, devemos ter o arquivo ```appsettings.Production.json``` já criado. ("Release = Production")

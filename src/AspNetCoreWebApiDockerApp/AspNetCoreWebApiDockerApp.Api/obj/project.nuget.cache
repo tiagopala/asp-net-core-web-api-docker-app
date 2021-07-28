@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "plGJi+yunXc8PFBxQ28oPs1cwegI2Pszfuec3u2MhDglRtB3jZE96+E9obIE6rBfBs4qIAdKIVDUuvCgNBhiqQ==",
+  "dgSpecHash": "Kkzc26o4HPZHt2JyobJeonrp2I22B7UFyVTuo6cPsUNFGjhwTBxX9ElRu8jOqABWXVk6XTj35YMSvRQb/HTRXw==",
   "success": true,
   "projectFilePath": "C:\\Users\\Tiago Pala\\source\\AspNetCoreWebApiDockerApp\\src\\AspNetCoreWebApiDockerApp\\AspNetCoreWebApiDockerApp.Api\\AspNetCoreWebApiDockerApp.Api.csproj",
   "expectedPackageFiles": [
@@ -47,10 +47,7 @@
     "C:\\Users\\Tiago Pala\\.nuget\\packages\\system.security.permissions\\4.7.0\\system.security.permissions.4.7.0.nupkg.sha512",
     "C:\\Users\\Tiago Pala\\.nuget\\packages\\system.security.principal.windows\\4.7.0\\system.security.principal.windows.4.7.0.nupkg.sha512",
     "C:\\Users\\Tiago Pala\\.nuget\\packages\\system.text.encoding.codepages\\4.4.0\\system.text.encoding.codepages.4.4.0.nupkg.sha512",
-    "C:\\Users\\Tiago Pala\\.nuget\\packages\\system.windows.extensions\\4.7.0\\system.windows.extensions.4.7.0.nupkg.sha512",
-    "C:\\Users\\Tiago Pala\\.nuget\\packages\\microsoft.netcore.app.runtime.win-x64\\3.1.15\\microsoft.netcore.app.runtime.win-x64.3.1.15.nupkg.sha512",
-    "C:\\Users\\Tiago Pala\\.nuget\\packages\\microsoft.windowsdesktop.app.runtime.win-x64\\3.1.15\\microsoft.windowsdesktop.app.runtime.win-x64.3.1.15.nupkg.sha512",
-    "C:\\Users\\Tiago Pala\\.nuget\\packages\\microsoft.aspnetcore.app.runtime.win-x64\\3.1.15\\microsoft.aspnetcore.app.runtime.win-x64.3.1.15.nupkg.sha512"
+    "C:\\Users\\Tiago Pala\\.nuget\\packages\\system.windows.extensions\\4.7.0\\system.windows.extensions.4.7.0.nupkg.sha512"
   ],
   "logs": []
 }
