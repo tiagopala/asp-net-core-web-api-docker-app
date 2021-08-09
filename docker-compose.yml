@@ -1,0 +1,27 @@
+version: "3.9"
+
+services:
+  libraryapi:
+    image: tiagopala/api-library-app
+    container_name: "libraryapi"
+    ports:
+      - "80:80"
+    depends_on:
+      - librarydb
+    networks:
+      - library-network
+  
+  librarydb:
+    image: tiagopala/mysql-db-library-app
+    container_name: "librarydb"
+    ports: 
+      - "3306:3306"
+    volumes:
+      - ./bd/database-volume:/var/lib/mysql
+    networks:
+      - library-network
+
+networks:
+  library-network:
+    name: library-network
+    driver: bridge

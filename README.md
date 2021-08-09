@@ -52,6 +52,20 @@ A partir do diretório ```\AspNetCoreWebApiDockerApp\```
 
 Executar o comando ```docker build -f Dockerfile -t tiagopala/api-library-app .``` para buildar a imagem.
 
+Executar o comando ```docker push tiagopala/api-library-app``` para subir a última versão da imagem para o dockerhub.
+
 Executar o comando ```docker run -d --name libraryapi -p "80:80" --network library-network tiagopala/api-library-app```
 
 Ele irá subir a imagem expondo a porta 80 à ser utilizada pela aplicação dentro da rede library-network utilizada na comunicação entre os containers.
+
+### Subindo os serviços via docker-compose
+
+A partir do diretório ```\AspNetCoreWebApiDockerApp\```
+
+#### Subir os containers
+
+Executar o comando ```docker-compose -f docker-compose.yml up -d```
+
+#### Derrubar os containers
+
+Executar o comando ```docker-compose -f docker-compose.yml down```

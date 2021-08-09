@@ -7,7 +7,10 @@ namespace AspNetCoreWebApiDockerApp.Api.Models
     [Table("books", Schema = "librarydb")]
     public class Book
     {
-        public Book() { }
+        public Book() 
+        {
+            Id = Guid.NewGuid().ToString();
+        }
 
         public Book(Guid id)
         {
